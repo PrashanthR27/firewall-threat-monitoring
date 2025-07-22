@@ -41,7 +41,7 @@ project/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/firewall-threat-monitoring.git
+git https://github.com/PrashanthR27/firewall-threat-monitoring.git
 cd firewall-threat-monitoring
 ```
 
