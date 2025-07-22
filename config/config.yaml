@@ -1,0 +1,48 @@
+algorithm: isolation_forest
+scaling_features:
+  - Bytes
+  - Bytes Sent
+  - Bytes Received
+  - Packets
+  - pkts_sent
+  - pkts_received
+  - Elapsed Time (sec)
+  - nat_port_shift
+categorical_columns:
+  - Action
+  - src_port_entropy_bin
+  - dst_port_entropy_bin
+risky_ports: [20, 21, 22, 23, 25, 53, 69, 80, 110, 139, 445, 143, 161, 162, 443, 3306, 3389, 5900, 8080, 8443]
+port_bins: [0, 1023, 49151, 65535]
+features:
+  isolation_forest:
+    - Bytes Sent
+    - Bytes Received
+    - pkts_sent
+    - pkts_received
+    - Elapsed Time (sec)
+    - nat_port_shift
+    - Action
+    - byte_ratio
+    - packet_ratio
+    - src_port_entropy_bin
+    - dst_port_entropy_bin
+    - is_suspicious_port
+  oneclass_svm:
+    - byte_ratio
+    - packet_ratio
+    - Elapsed Time (sec)
+    - nat_port_shift
+    - Action
+    - src_port_entropy_bin
+    - dst_port_entropy_bin
+    - is_suspicious_port
+  dbscan:
+    - byte_ratio
+    - packet_ratio
+    - Elapsed Time (sec)
+    - nat_port_shift
+    - Action
+    - src_port_entropy_bin
+    - dst_port_entropy_bin
+    - is_suspicious_port
